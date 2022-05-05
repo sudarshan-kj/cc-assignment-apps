@@ -20,5 +20,27 @@
       { "option": "object", "isCorrect": false },
       { "option": "array", "isCorrect": false }
     ]
+  },
+  {
+    "id": 3,
+    "question": "List down all the lifecycle methods in React",
+    "questionType": "textInput",
+    "answerOptions": [
+      { "option": "string", "isCorrect": true },
+      { "option": "boolean", "isCorrect": true },
+      { "option": "object", "isCorrect": false },
+      { "option": "array", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "List down all the lifecycle methods in React",
+    "questionType": "radio",
+    "answerOptions": [
+      { "option": "string", "isCorrect": true },
+      { "option": "boolean", "isCorrect": true },
+      { "option": "object", "isCorrect": false },
+      { "option": "array", "isCorrect": false }
+    ]
   }
 ]

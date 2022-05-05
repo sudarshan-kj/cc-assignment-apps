@@ -1,18 +1,8 @@
-import { useTransition, useState, useContext } from "react";
-import { AppContext } from "../App";
-import { actions } from "../actions";
-import {
-  Box,
-  Button,
-  TextField,
-  Paper,
-  Typography,
-  Fade,
-  Grow,
-} from "@mui/material";
+import { Box, Button, TextField, Paper, Typography, Grow } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import RadioButtons from "../components/buttons/RadioButtons";
 import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const StyledTextField = styled(TextField)({
   "& .MuiInputLabel-root ": {
@@ -42,44 +32,46 @@ const InputDetailsFormHeading = () => (
   </Box>
 );
 
-const InputDetailsFormBody = () => (
-  <Box sx={{ marginTop: "2rem" }}>
-    <Box>
-      <StyledTextField
-        fullWidth
-        id="outlined-name"
-        label="Name"
-        variant="outlined"
-      />
-    </Box>
-    <Box sx={{ marginTop: "2rem" }}>
-      <RadioButtons
-        buttons={[
-          { value: "male", label: "Male" },
-          { value: "female", label: "Female" },
-        ]}
-        label=""
-      />
-    </Box>
-    <Button
-      sx={{ marginTop: "2rem", padding: "1rem" }}
-      fullWidth
-      color="secondary"
-      variant="contained"
+const InputDetailsFormBody = () => {
+  const navigate = useNavigate();
+  return (
+    <Box
+      component="form"
+      sx={{ marginTop: "2rem" }}
+      onSubmit={() => navigate("/questions")}
     >
-      Submit and Start Test
-    </Button>
-  </Box>
-);
+      <Box>
+        <StyledTextField
+          fullWidth
+          id="outlined-name"
+          label="Name"
+          variant="outlined"
+        />
+      </Box>
+      <Box sx={{ marginTop: "2rem" }}>
+        <RadioButtons
+          buttons={[
+            { value: "male", label: "Male" },
+            { value: "female", label: "Female" },
+          ]}
+          label=""
+        />
+      </Box>
+      <Button
+        sx={{ marginTop: "2rem", padding: "1rem" }}
+        fullWidth
+        color="secondary"
+        variant="contained"
+        type="submit"
+      >
+        Submit and Start Test
+      </Button>
+    </Box>
+  );
+};
 
 const InputDetailsForm = () => {
-  const { setAnswer } = actions;
-  const [appData, dispatchAppData] = useContext(AppContext);
   const theme = useTheme();
-
-  const handleLoadButtonClick = () => {
-    dispatchAppData(setAnswer(1, "Hello Usha!", "string"));
-  };
 
   return (
     <Box

@@ -13,7 +13,6 @@ type Action = {
 export default function appReducer(state: State, action: Action) {
   switch (action.type) {
     case "SET_ANSWER":
-      console.log("I did come here!");
       return {
         answers: {
           ...state.answers,

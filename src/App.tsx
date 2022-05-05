@@ -4,6 +4,7 @@ import InputDetailsForm from "./pages/InputDetailsForm";
 import appReducer from "./context/AppReducer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
+import Questions from "./pages/Questions";
 
 const initContextData = { answers: {} };
 const AppContext: any = React.createContext([]);
@@ -62,6 +63,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route element={<InputDetailsForm />} path="/" />
+            <Route element={<Questions />} path="/questions" />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

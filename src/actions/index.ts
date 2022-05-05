@@ -1,5 +1,5 @@
 export const actions = {
-  setAnswer(id: number, value: string, type: string) {
+  setAnswer(id: number, value: any, type: string) {
     return {
       type: "SET_ANSWER",
       payload: {
