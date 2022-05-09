@@ -23,6 +23,8 @@ function QuestionCard({
   const { setAnswer } = actions;
   const [appData, dispatchAppData] = useContext(AppContext);
 
+  console.log("App data is", appData);
+
   return (
     <Card
       sx={{
@@ -32,7 +34,9 @@ function QuestionCard({
         overflowY: "auto",
       }}
     >
-      <Typography>{question}</Typography>
+      <Typography variant="h5" marginBottom="2rem">
+        {question}
+      </Typography>
       {(() => {
         switch (questionType) {
           case "checkbox":
@@ -64,6 +68,7 @@ function QuestionCard({
           case "radio":
             return (
               <RadioOptions
+                options={answers.map((answer) => answer.option)}
                 value={appData.answers[id]?.value || ""}
                 handleChange={(e) =>
                   dispatchAppData(setAnswer(id, e.target.value, questionType))

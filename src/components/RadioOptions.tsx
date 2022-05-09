@@ -7,11 +7,12 @@ import {
 import React from "react";
 
 type RadioOptionsProps = {
+  options: string[];
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const RadioOptions = ({ value, handleChange }: RadioOptionsProps) => {
+const RadioOptions = ({ options, value, handleChange }: RadioOptionsProps) => {
   return (
     <FormControl>
       <RadioGroup
@@ -20,16 +21,14 @@ const RadioOptions = ({ value, handleChange }: RadioOptionsProps) => {
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel
-          value="optionA"
-          control={<Radio />}
-          label="Option A"
-        />
-        <FormControlLabel
-          value="optionB"
-          control={<Radio />}
-          label="Option B"
-        />
+        {options.map((option) => (
+          <FormControlLabel
+            key={option}
+            value={option}
+            control={<Radio />}
+            label={option}
+          />
+        ))}
       </RadioGroup>
     </FormControl>
   );

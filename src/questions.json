@@ -25,11 +25,6 @@
     "id": 3,
     "question": "List down all the lifecycle methods in React",
     "questionType": "textInput",
-    "answerOptions": [
-      { "option": "string", "isCorrect": true },
-      { "option": "boolean", "isCorrect": true },
-      { "option": "object", "isCorrect": false },
-      { "option": "array", "isCorrect": false }
-    ]
+    "answerOptions": [{ "option": "componentDidMount", "isCorrect": true }]
   }
 ]

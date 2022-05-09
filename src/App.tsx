@@ -5,6 +5,8 @@ import appReducer from "./context/AppReducer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import Questions from "./pages/Questions";
+import ResultsPage from "./pages/Results";
+import AuthLayout from "./components/AuthLayout";
 
 const initContextData = { answers: {} };
 const AppContext: any = React.createContext([]);
@@ -64,6 +66,9 @@ const App = () => {
           <Routes>
             <Route element={<InputDetailsForm />} path="/" />
             <Route element={<Questions />} path="/questions" />
+            <Route element={<AuthLayout />}>
+              <Route element={<ResultsPage />} path="/results" />
+            </Route>
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

@@ -2,16 +2,26 @@ import { useEffect, useState } from "react";
 import QuestionCard, { QuestionType } from "../components/QuestionCard";
 import questions from "../questions.json";
 import { Box, Button, Typography, CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const TOTAL_QUESTIONS = questions.length;
 
 const Questions = () => {
   const [currentQuestion, setCurrentQuestion] = useState(questions[0].id);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 1000);
   }, []);
+
+  function handleNextButtonClick(index: number) {
+    if (index === TOTAL_QUESTIONS - 1) {
+      navigate("/results");
+    } else {
+      setCurrentQuestion((prev) => prev + 1);
+    }
+  }
 
   return (
     <Box
@@ -54,11 +64,8 @@ const Questions = () => {
                       Previous
                     </Button>
 
-                    <Button
-                      disabled={index === TOTAL_QUESTIONS - 1}
-                      onClick={() => setCurrentQuestion((prev) => prev + 1)}
-                    >
-                      Next
+                    <Button onClick={() => handleNextButtonClick(index)}>
+                      {index === TOTAL_QUESTIONS - 1 ? "Submit" : "Next"}
                     </Button>
                   </Box>
                 </Box>
