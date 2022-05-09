@@ -23,8 +23,6 @@ function QuestionCard({
   const { setAnswer } = actions;
   const [appData, dispatchAppData] = useContext(AppContext);
 
-  console.log("App data is", appData);
-
   return (
     <Card
       sx={{
@@ -51,7 +49,6 @@ function QuestionCard({
                     const indexOfName = currentArray.indexOf(e.target.name);
                     currentArray.splice(indexOfName, 1);
                   }
-                  console.log("Current array is", currentArray);
                   dispatchAppData(setAnswer(id, currentArray, questionType));
                 }}
                 options={answers.map((answer: any) => {

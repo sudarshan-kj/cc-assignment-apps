@@ -1,10 +1,4 @@
-import {
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  accordionClasses,
-} from "@mui/material";
-import { useState } from "react";
+import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 
 type CheckboxOptionsProps = {
   options: any;
@@ -12,7 +6,6 @@ type CheckboxOptionsProps = {
 };
 
 const CheckboxOptions = ({ options, handleChange }: CheckboxOptionsProps) => {
-  console.log("Options are", options);
   return (
     <FormGroup>
       {options.map((option: any) => (

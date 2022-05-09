@@ -1,6 +1,5 @@
 import {
   FormControl,
-  FormLabel,
   RadioGroup,
   FormControlLabel,
   Radio,
@@ -21,8 +20,16 @@ const RadioOptions = ({ value, handleChange }: RadioOptionsProps) => {
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel value="female" control={<Radio />} label="Female" />
-        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel
+          value="optionA"
+          control={<Radio />}
+          label="Option A"
+        />
+        <FormControlLabel
+          value="optionB"
+          control={<Radio />}
+          label="Option B"
+        />
       </RadioGroup>
     </FormControl>
   );
